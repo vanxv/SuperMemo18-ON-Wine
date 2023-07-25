@@ -1,4 +1,92 @@
-# SuperMemo18-Wine32
+# install wine-crossover
+
+* [XQuartz](https://www.xquartz.org/releases/XQuartz-2.7.7.html)
+
+brew install winetricks
+brew install WINEPREFIX
+
+proxychains4 brew install --cask --no-quarantine gcenx/wine/wine-crossover 
+
+brew install --cask --no-quarantine gcenx/wine/wine-crossover  
+
+vim ~/.zshrc
+```zsh
+## wine
+
+export PATH="/Applications/Wine Crossover.app/Contents//Resources/wine/bin:$PATH"
+
+
+
+```
+source ~/.zshrc
+
+### change wine64 to wine
+
+supermemo wine64 can use SM18
+
+```shell
+cd /Applications/Wine\ Crossover.app/Contents//Resources/wine/bin
+mv wine wine32
+cp wine64 wine
+```
+
+```shell
+bash winetricks    #启动winetricks向导
+winecfg #设置wine
+```
+
+```shell
+WINEPREFIX=~/.wine proxychains4 winetricks ie8 
+WINEPREFIX=~/.wine wine 'C:\Program Files\Internet Explorer\iexplore'
+wine 'C:\Program Files\Internet Explorer\iexplore'
+```
+
+
+downlaods  SuperMemo18
+
+
+## 字体 + 程序
+
+
+```shell
+git clone https://github.com/xucongyong/SuperMemo18-ON-Wine
+
+cd SuperMemo18-ON-Wine
+mkdir ~/.wine/drive_c/winetricks/
+mkdir ~/.wine/drive_c/gdiplus_winxp/
+cp -rf ./winetricks ~/.wine/drive_c/winetricks/
+wine 'C:\winetricks\gdiplus_winxp\WindowsXP-KB975337-x86-ENU.exe'
+wine 'C:\winetricks\ie8\IE8-WindowsXP-x86-ENU.exe'
+
+echo "copy  SuperMemo"
+mkdir ~/.wine/drive_c/supermemo/
+cp -rf supermemo/* ~/.wine/drive_c/supermemo/
+cp -rf  wine-fonts/* ~/.wine/drive_c/windows/Fonts/
+
+WINEPREFIX=~/.wine winetricks ie8
+```
+
+```SHELL
+WINEPREFIX=/Volumes/math/902Soft/wine wine 'C:\sm18\sm18.exe'
+WINEPREFIX=~/.wine wine 'C:\sm18\sm18.exe'
+WINEPREFIX=~/.wine wine 'C:\\winetricks\gdiplus_winxp\WindowsXP-KB975337-x86-ENU.exe'
+WINEPREFIX=~/.wine wine 'C:\\winetricks\msls31\InstMsiW.exe'
+WINEPREFIX=~/.wine wine 'C:\\paipai\CarBidAccelerator.exe'
+
+
+WINEPREFIX=~/.wine wine 'C:\Aboboo_3.9.6\aboboo.exe'
+```
+
+
+
+
+
+
+
+# old install method
+
+
+
 
 ## 安装步骤：
 
